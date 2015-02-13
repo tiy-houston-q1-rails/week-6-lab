@@ -74,11 +74,13 @@ After completing this assignment, you be able to effectively use
 
 ```ruby
 class Post
+
   def self.timeline(user)
-    follower_ids = user.followers.map(&:id)
+    follower_ids = user.following_users.map(&:id)
     all_ids= follower_ids << user.id
     Post.where(user_id: all_ids).order("created_at DESC")
   end
+
 end
 ```
 
